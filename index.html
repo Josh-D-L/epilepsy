@@ -1,0 +1,52 @@
+<html>
+<body>
+<script>
+function black() {
+document.body.style.backgroundColor = "#000000";
+setTimeout(function () {red();},10);
+}
+
+function red() {
+document.body.style.backgroundColor = "#FF0000";
+setTimeout(function () {green();},10);
+}
+
+function green() {
+document.body.style.backgroundColor = "#00FF00";
+setTimeout(function () {blue();},10);
+}
+
+function blue() {
+document.body.style.backgroundColor = "#0000FF";
+setTimeout(function () {yellow();},10);
+}
+
+function yellow() {
+document.body.style.backgroundColor = "#FFFF00";
+setTimeout(function () {cyan();},10);
+}
+
+function cyan() {
+document.body.style.backgroundColor = "#00FFFF";
+setTimeout(function () {purple();},10);
+}
+
+function purple() {
+document.body.style.backgroundColor = "#FF00FF";
+setTimeout(function () {gray();},10);
+}
+
+function gray() {
+document.body.style.backgroundColor = "#C0C0C0";
+setTimeout(function () {white();},10);
+}
+
+function white() {
+document.body.style.backgroundColor = "#FFFFFF";
+setTimeout(function () {black();},10);
+}
+
+black();
+</script>
+</body>
+</html>
