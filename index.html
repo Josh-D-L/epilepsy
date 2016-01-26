@@ -1,14 +1,47 @@
 <html>
 <body>
+<canvas id="canvas"></canvas>
 <script>
 function random() {
 var a = Math.ceil(Math.random() * 255);
 var b = Math.ceil(Math.random() * 255);
 var c = Math.ceil(Math.random() * 255);
 document.body.style.backgroundColor = 'rgb(' + a + ',' + b + ',' + c + ')';
+drawFace('rgb(' + (255 - a) + ',' + (255 - b) + ',' + (255 - c) + ')')
 setTimeout(function () {random();},10);
 }
-
+function drawFace(color) {
+  var canvas = document.getElementById('canvas');
+  var context = canvas.getContext('2d');
+  var centerX = canvas.width / 2;
+  var centerY = canvas.height / 2;
+  var radius = 70;
+  var eyeRadius = 10;
+  var eyeXOffset = 25;
+  var eyeYOffset = 20;
+  
+  // draw the yellow circle
+  context.beginPath();
+  context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
+  context.lineWidth = 5;
+  context.strokeStyle = color;
+  context.stroke();
+    
+  // draw the eyes
+  context.beginPath();
+  var eyeX = centerX - eyeXOffset;
+  var eyeY = centerY - eyeXOffset;
+  context.arc(eyeX, eyeY, eyeRadius, 0, 2 * Math.PI, false);
+  var eyeX = centerX + eyeXOffset;
+  context.arc(eyeX, eyeY, eyeRadius, 0, 2 * Math.PI, false);
+  context.fillStyle = color;
+  context.fill();
+  
+  // draw the mouth
+  context.beginPath();
+  context.arc(centerX, centerY, 50, 0, Math.PI, false);
+  context.stroke();
+}
 random();
 </script>
 </body>
