@@ -10,7 +10,10 @@ document.body.style.backgroundColor = 'rgb(' + a + ',' + b + ',' + c + ')';
 drawFace('rgb(' + (255 - a) + ',' + (255 - b) + ',' + (255 - c) + ')')
 }
 function drawFace(color) {
-  var scaleFactor = 4;
+  var scaleFactor = Math.floor(window.innerWidth / 140);
+  if (Math.floor(window.innerHeight / 140) < scaleFactor) {
+    scaleFactor = Math.floor(window.innerHeight / 140);
+  }
   var canvas = document.getElementById('canvas');
   var context = canvas.getContext('2d');
   var centerX = canvas.width / 2;
