@@ -10,19 +10,20 @@ document.body.style.backgroundColor = 'rgb(' + a + ',' + b + ',' + c + ')';
 drawFace('rgb(' + (255 - a) + ',' + (255 - b) + ',' + (255 - c) + ')')
 }
 function drawFace(color) {
+  var scaleFactor = 2;
   var canvas = document.getElementById('canvas');
   var context = canvas.getContext('2d');
   var centerX = canvas.width / 2;
   var centerY = canvas.height / 2;
-  var radius = 140;
-  var eyeRadius = 20;
-  var eyeXOffset = 50;
-  var eyeYOffset = 40;
+  var radius = 70 * scaleFactor;
+  var eyeRadius = 10 * scaleFactor;
+  var eyeXOffset = 25 * scaleFactor;
+  var eyeYOffset = 20 * scaleFactor;
   
   // draw the yellow circle
   context.beginPath();
   context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
-  context.lineWidth = 5;
+  context.lineWidth = 5 * scaleFactor;
   context.strokeStyle = color;
   context.stroke();
     
@@ -38,7 +39,7 @@ function drawFace(color) {
   
   // draw the mouth
   context.beginPath();
-  context.arc(centerX, centerY, 100, 0, Math.PI, false);
+  context.arc(centerX, centerY, 50 * scaleFactor, 0, Math.PI, false);
   context.stroke();
 }
 document.getElementById('canvas').width = window.innerWidth;
